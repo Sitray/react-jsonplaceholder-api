@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+
+import CardContainer from './components/CardContainer/CardContainer';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+
+    <CardContainer />
+
   </React.StrictMode>,
   document.getElementById('root'),
 );

@@ -4,6 +4,7 @@ import useFetchUserData from './hooks/useFetchUserData';
 
 const App = () => {
   const { data, loading } = useFetchUserData();
+  console.log(data);
   return (
 
     <div>
