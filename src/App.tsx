@@ -1,24 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import { User } from './interfaces';
+import React from 'react';
+
+import useFetchUserData from './hooks/useFetchUserData';
 
 const App = () => {
-  const [state, setstate] = useState<User[]>([]);
-
-  const url: string = 'https://jsonplaceholder.typicode.com/posts';
-  const a = async () => {
-    const resp = await fetch(url);
-    const data: [] = await resp.json();
-    console.log(data);
-    setstate(data);
-  };
-  useEffect(() => {
-    a();
-  }, []);
+  const { data, loading } = useFetchUserData();
   return (
 
     <div>
-      {state.map((res) => (
+      {loading && <p>loading</p>}
+
+      {data.map((res) => (
         <div key={res.id}>
           {res.id}
           {' '}
