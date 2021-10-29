@@ -8,10 +8,7 @@ body {
   font-family: sans-serif;
 }
 
-.container {
-  width: 90%;
-  margin: 50px auto;
-}
+
 .heading {
   text-align: center;
   font-size: 30px;
@@ -32,6 +29,9 @@ body {
   margin-bottom: 50px;
   transition: 0.3s;
   border-radius: 10px;
+  font-size: 10px;
+  width: 90%;
+
 }
 
 .card-header {

@@ -5,8 +5,9 @@
   }
 
  .container{
-      width: 90%;
-      margin: 50px auto;   
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
   }
 
   .row{
@@ -14,6 +15,7 @@
       flex-direction: row;
       justify-content: space-around;
       flex-flow: wrap;
+      width: 20em;
   }
 
     

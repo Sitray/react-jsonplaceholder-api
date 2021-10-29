@@ -5,9 +5,7 @@ import CardContainer from './components/CardContainer/CardContainer';
 
 ReactDOM.render(
   <React.StrictMode>
-
     <CardContainer />
-
   </React.StrictMode>,
   document.getElementById('root'),
 );
