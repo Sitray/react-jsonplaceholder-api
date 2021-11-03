@@ -51,7 +51,6 @@ const CardContainer: React.FC<LinkProps> = ({ userData, getAllRequestData, loadi
   }, [searchInput, userData]);
 
   return (
-
     <div className="container">
       <div className="search-box">
         <SearchBox placeholder="search....." onSearch={(e:any) => handleOnSearch(e)} />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Dispatch } from 'redux';
 import { removeCardFromArray } from '../../store/data/dataAction';
@@ -18,9 +18,16 @@ const Card = ({
 }: Props) => {
   const dispatch:Dispatch<Actions> = useDispatch();
 
+  const [edition, setEdition] = useState<boolean>(true);
+  const [newText, setNewText] = useState<string>(body);
+
   // eslint-disable-next-line no-shadow
   const handleRemove = (id:number) => {
     dispatch(removeCardFromArray(id));
+  };
+
+  const enableEditing = () => {
+    setEdition(!edition);
   };
 
   return (
@@ -35,15 +42,14 @@ const Card = ({
         <h1>
           {' '}
           título:
+
           {title}
         </h1>
       </div>
       <div className="card-body">
-        <p>
-          {body}
-        </p>
+        <textarea name="body" id="" cols={30} rows={10} value={newText} disabled={edition} onChange={(e) => setNewText(e.target.value)} className="textarea" />
         <div className="button-container">
-          <button className="btn" type="button">Edit</button>
+          <button className="btn" type="button" onClick={enableEditing}>Edit</button>
           <button className="btn" type="button" onClick={() => handleRemove(id)}>Remove</button>
         </div>
       </div>
