@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './SearchBox.css';
+
 interface Props {
     placeholder: string,
 
@@ -8,8 +10,7 @@ interface Props {
 
 const SearchBox = ({ onSearch, placeholder }: Props) => (
   <div>
-    <input type="text" placeholder={placeholder} onChange={onSearch} />
-    <button type="submit"> search </button>
+    <input className="search-bar" type="text" placeholder={placeholder} onChange={onSearch} />
   </div>
 );
 
