@@ -26,15 +26,26 @@ const Card = ({
   return (
     <div className="card">
       <div className="card-header">
-        <h1>{userId}</h1>
-        <h1>{title}</h1>
+        <h1>
+          {' '}
+          usuario:
+          {userId}
+        </h1>
+        <br />
+        <h1>
+          {' '}
+          título:
+          {title}
+        </h1>
       </div>
       <div className="card-body">
         <p>
           {body}
         </p>
-        <button className="btn" type="button">Read more</button>
-        <button className="btn" type="button" onClick={() => handleRemove(id)}>Remove</button>
+        <div className="button-container">
+          <button className="btn" type="button">Edit</button>
+          <button className="btn" type="button" onClick={() => handleRemove(id)}>Remove</button>
+        </div>
       </div>
     </div>
   );

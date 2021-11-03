@@ -4,7 +4,6 @@ import './SearchBox.css';
 
 interface Props {
     placeholder: string,
-
     onSearch: any
 }
 
