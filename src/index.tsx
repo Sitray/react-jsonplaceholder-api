@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
 import CardContainer from './components/CardContainer/CardContainer';
+import { store } from './store/rootstore';
 
 ReactDOM.render(
   <React.StrictMode>
-    <CardContainer />
+    <Provider store={store}>
+      <CardContainer />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
