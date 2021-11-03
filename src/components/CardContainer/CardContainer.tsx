@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
@@ -14,6 +14,7 @@ import { Data } from '../../store/data/models/Data';
 import Card from '../Card/Card';
 
 import './CardContainer.css';
+import SearchBox from '../SearchBox/SearchBox';
 
 interface Props{}
 
@@ -36,19 +37,28 @@ const CardContainer: React.FC<LinkProps> = ({ userData, getAllRequestData, loadi
 
   // const { data, loading } = useFetchUserData();
 
-  // console.log(data);
+  const [searchInput, setSearchInput] = useState<any>('');
+  const [filteredData, setFilteredData] = useState<Data[]>([]);
+
+  const handleOnSearch = (e:any) => {
+    setSearchInput(e.target.value);
+  };
+
+  useEffect(() => {
+    setFilteredData(
+      userData.filter((data) => data.body.toLowerCase().includes(searchInput.toLowerCase()) || data.title.toLowerCase().includes(searchInput.toLowerCase())),
+    );
+  }, [searchInput, userData]);
+
   return (
-
     <div className="container">
+      <SearchBox placeholder="search....." onSearch={(e:any) => handleOnSearch(e)} />
       {loading && <p>cargando</p>}
-      {userData.map((res) => (
-
+      {filteredData.map((res) => (
         <div className="row" key={res.id}>
           <Card userId={res.userId} body={res.body} title={res.title} id={res.id} />
-
         </div>
       ))}
-      <p>hola</p>
     </div>
   );
 };
