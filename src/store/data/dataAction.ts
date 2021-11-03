@@ -2,7 +2,9 @@ import { Dispatch } from 'redux';
 
 import { Actions } from '../models/actions';
 
-import { FETCH_DATA_REQUEST, FETCH_DATA_SUCCESS, REMOVE_DATA } from './models/actions';
+import {
+  FETCH_DATA_REQUEST, FETCH_DATA_SUCCESS, ADD_NEW_DATA, REMOVE_DATA,
+} from './models/actions';
 import { Data } from './models/Data';
 
 const requestData = ():Actions => ({
@@ -22,6 +24,12 @@ const gettingData = (data: Data[]):Actions => ({
 export const removeCardFromArray = (id: number):Actions => ({
   type: REMOVE_DATA,
   id,
+});
+
+export const modifyDataFromArray = (id:number, newData: string):Actions => ({
+  type: ADD_NEW_DATA,
+  id,
+  newData,
 });
 
 // const invalitData = ():Actions => ({

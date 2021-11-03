@@ -1,5 +1,5 @@
 import {
-  DataActions, FETCH_DATA_REQUEST, FETCH_DATA_ERROR, FETCH_DATA_SUCCESS, REMOVE_DATA,
+  DataActions, FETCH_DATA_REQUEST, FETCH_DATA_ERROR, FETCH_DATA_SUCCESS, REMOVE_DATA, ADD_NEW_DATA,
 } from './models/actions';
 
 import { Data } from './models/Data';
@@ -47,6 +47,15 @@ export const dataReducer = (state = initialState, action: DataActions): DataStat
         userData: updateData,
       };
 
+    case ADD_NEW_DATA:
+      // eslint-disable-next-line no-case-declarations
+      const newArray: Data[] = [...state.userData];
+      newArray[action.id].body = action.newData;
+
+      return {
+        ...state,
+        userData: newArray,
+      };
     default: return state;
   }
 };

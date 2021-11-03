@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Dispatch } from 'redux';
-import { removeCardFromArray } from '../../store/data/dataAction';
+import { modifyDataFromArray, removeCardFromArray } from '../../store/data/dataAction';
 import { Actions } from '../../store/models/actions';
 
 import './Card.css';
@@ -30,6 +30,11 @@ const Card = ({
     setEdition(!edition);
   };
 
+  // eslint-disable-next-line no-shadow
+  const handleSave = (id:number) => {
+    dispatch(modifyDataFromArray(id, newText));
+  };
+
   return (
     <div className="card">
       <div className="card-header">
@@ -42,7 +47,6 @@ const Card = ({
         <h1>
           {' '}
           título:
-
           {title}
         </h1>
       </div>
@@ -50,6 +54,7 @@ const Card = ({
         <textarea name="body" id="" cols={30} rows={10} value={newText} disabled={edition} onChange={(e) => setNewText(e.target.value)} className="textarea" />
         <div className="button-container">
           <button className="btn" type="button" onClick={enableEditing}>Edit</button>
+          <button className="btn" type="button" onClick={() => handleSave(id)}>Save</button>
           <button className="btn" type="button" onClick={() => handleRemove(id)}>Remove</button>
         </div>
       </div>
