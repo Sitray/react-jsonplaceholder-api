@@ -2,7 +2,7 @@ import { Dispatch } from 'redux';
 
 import { Actions } from '../models/actions';
 
-import { FETCH_DATA_REQUEST, FETCH_DATA_SUCCESS } from './models/actions';
+import { FETCH_DATA_REQUEST, FETCH_DATA_SUCCESS, REMOVE_DATA } from './models/actions';
 import { Data } from './models/Data';
 
 const requestData = ():Actions => ({
@@ -17,6 +17,11 @@ const gettingData = (data: Data[]):Actions => ({
   loading: false,
   data,
   error: '',
+});
+
+export const removeCardFromArray = (id: number):Actions => ({
+  type: REMOVE_DATA,
+  id,
 });
 
 // const invalitData = ():Actions => ({

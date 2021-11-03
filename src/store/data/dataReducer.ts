@@ -1,5 +1,5 @@
 import {
-  DataActions, FETCH_DATA_REQUEST, FETCH_DATA_ERROR, FETCH_DATA_SUCCESS,
+  DataActions, FETCH_DATA_REQUEST, FETCH_DATA_ERROR, FETCH_DATA_SUCCESS, REMOVE_DATA,
 } from './models/actions';
 
 import { Data } from './models/Data';
@@ -35,6 +35,16 @@ export const dataReducer = (state = initialState, action: DataActions): DataStat
         loading: false,
         userData: [],
         error: '',
+      };
+
+    case REMOVE_DATA:
+      // eslint-disable-next-line no-case-declarations
+      const updateData: Data[] = state.userData.filter(
+        (data) => data.id !== action.id,
+      );
+      return {
+        ...state,
+        userData: updateData,
       };
 
     default: return state;

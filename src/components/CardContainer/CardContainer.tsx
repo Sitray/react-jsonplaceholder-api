@@ -6,7 +6,6 @@ import { getAllRequestData } from '../../store/data/dataAction';
 
 import { AppState } from '../../store/rootstore';
 import { Actions } from '../../store/models/actions';
-
 import { Data } from '../../store/data/models/Data';
 
 // import { fetchData } from '../../actions/actions';
@@ -24,7 +23,7 @@ interface LinkStateProps {
 }
 
 interface LinkDispatchProps {
-  getAllRequestData: any
+  getAllRequestData: () => void
 }
 
 type LinkProps = Props & LinkStateProps & LinkDispatchProps
@@ -38,7 +37,6 @@ const CardContainer: React.FC<LinkProps> = ({ userData, getAllRequestData, loadi
   // const { data, loading } = useFetchUserData();
 
   // console.log(data);
-  console.log(userData);
   return (
 
     <div className="container">
