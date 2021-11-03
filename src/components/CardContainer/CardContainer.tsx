@@ -51,8 +51,11 @@ const CardContainer: React.FC<LinkProps> = ({ userData, getAllRequestData, loadi
   }, [searchInput, userData]);
 
   return (
+
     <div className="container">
-      <SearchBox placeholder="search....." onSearch={(e:any) => handleOnSearch(e)} />
+      <div className="search-box">
+        <SearchBox placeholder="search....." onSearch={(e:any) => handleOnSearch(e)} />
+      </div>
       {loading && <p>cargando</p>}
       {filteredData.map((res) => (
         <div className="row" key={res.id}>
