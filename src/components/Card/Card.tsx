@@ -44,17 +44,35 @@ const Card = ({
         <h1>
           {' '}
           usuario:
+          {' '}
+          {' '}
           {userId}
+          {' '}
+          {' '}
+          <hr />
         </h1>
+        {' '}
         <br />
-        <h1>
+        <h2>
           {' '}
           título:
+          {' '}
+          {' '}
           {title}
-        </h1>
+        </h2>
       </div>
       <div className="card-body">
-        <textarea name="body" cols={30} rows={10} value={newText} disabled={edition} onChange={(e) => setNewText(e.target.value)} className={style} />
+        <hr />
+        <textarea
+          name="body"
+          cols={30}
+          rows={10}
+          value={newText}
+          disabled={edition}
+          onChange={(e) => setNewText(e.target.value)}
+          className={style}
+        />
+        <hr />
         <div className="button-container">
           <button className="btn" type="button" onClick={enableEditing}>Edit</button>
           <button className="btn" type="button" onClick={() => handleSave(id)}>Save</button>

@@ -2,19 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
-import { getAllRequestData } from '../../store/data/dataAction';
 
+import { getAllRequestData } from '../../store/data/dataAction';
 import { AppState } from '../../store/rootstore';
 import { Actions } from '../../store/models/actions';
 import { Data } from '../../store/data/models/Data';
 
 // import { fetchData } from '../../actions/actions';
-
 // import useFetchUserData from '../../hooks/useFetchUserData';
+
 import Card from '../Card/Card';
+import SearchBox from '../SearchBox/SearchBox';
 
 import './CardContainer.css';
-import SearchBox from '../SearchBox/SearchBox';
 
 interface Props{}
 

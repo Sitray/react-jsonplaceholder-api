@@ -24,7 +24,7 @@
   flex-direction: row;
   justify-content: space-around;
   flex-flow: wrap;
-  width: 20em;
+  width: 20em;  
 }
 
 .search-box{

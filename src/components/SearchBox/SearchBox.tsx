@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 
 import './SearchBox.css';
@@ -9,9 +10,18 @@ interface Props {
 }
 
 const SearchBox = ({ onSearch, placeholder }: Props) => (
-  <div>
-    <input name="inputSearch" className="search-bar" type="text" placeholder={placeholder} onChange={onSearch} />
-  </div>
+  <nav>
+    <ul>
+      <li><a href="#">Index</a></li>
+      <li><a href="#">Nosotros</a></li>
+      <li><a href="#">Servicios</a></li>
+      <li><a href="#">Contáctanos</a></li>
+      <li>
+        <input name="inputSearch" className="search-bar" type="text" placeholder={placeholder} onChange={onSearch} />
+
+      </li>
+    </ul>
+  </nav>
 );
 
 export default SearchBox;
