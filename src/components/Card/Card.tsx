@@ -42,13 +42,15 @@ const Card = ({
     <div className="card">
       <div className="card-header">
         <h1>
-          {' '}
-          usuario:
+          User:
           {' '}
           {' '}
           {userId}
+          <br />
           {' '}
           {' '}
+          <br />
+
           <hr />
         </h1>
         {' '}
@@ -63,6 +65,7 @@ const Card = ({
       </div>
       <div className="card-body">
         <hr />
+        <br />
         <textarea
           name="body"
           cols={30}

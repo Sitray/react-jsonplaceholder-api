@@ -21,7 +21,7 @@ nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    background: #333;
+    background: #4C5B61;
     border-radius: 7px;
 }
 nav li a {
@@ -31,7 +31,7 @@ nav li a {
     padding: .5em 1em;
 }
 nav li a:hover {
-    background: tomato;
+    background: #829191;
     color: white;
 }
 
