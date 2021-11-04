@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Dispatch } from 'redux';
 import { modifyDataFromArray, removeCardFromArray } from '../../store/data/dataAction';
@@ -20,7 +20,7 @@ const Card = ({
 
   const [edition, setEdition] = useState<boolean>(true);
   const [newText, setNewText] = useState<string>(body);
-  const textAreaRef = useRef<HTMLLinkElement>(null);
+  const [style, setStyle] = useState<string>('textarea');
 
   // eslint-disable-next-line no-shadow
   const handleRemove = (id:number) => {
@@ -29,12 +29,13 @@ const Card = ({
 
   const enableEditing = () => {
     setEdition(!edition);
-    textAreaRef?.current?.focus();
+    setStyle(edition ? 'textarea-open' : 'textarea');
   };
 
   // eslint-disable-next-line no-shadow
   function handleSave(id: number) {
     dispatch(modifyDataFromArray(id, newText));
+    setStyle('textarea');
   }
 
   return (
@@ -53,7 +54,7 @@ const Card = ({
         </h1>
       </div>
       <div className="card-body">
-        <textarea name="body" id="" cols={30} rows={10} value={newText} disabled={edition} onChange={(e) => setNewText(e.target.value)} className="textarea" />
+        <textarea name="body" cols={30} rows={10} value={newText} disabled={edition} onChange={(e) => setNewText(e.target.value)} className={style} />
         <div className="button-container">
           <button className="btn" type="button" onClick={enableEditing}>Edit</button>
           <button className="btn" type="button" onClick={() => handleSave(id)}>Save</button>
