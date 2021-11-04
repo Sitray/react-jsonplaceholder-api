@@ -29,12 +29,14 @@ const Card = ({
 
   const enableEditing = () => {
     setEdition(!edition);
+
     setStyle(edition ? 'textarea-open' : 'textarea');
   };
 
   // eslint-disable-next-line no-shadow
   function handleSave(id: number) {
     dispatch(modifyDataFromArray(id, newText));
+
     setStyle('textarea');
   }
 
@@ -87,5 +89,3 @@ const Card = ({
 };
 
 export default Card;
-
-// export default Card;

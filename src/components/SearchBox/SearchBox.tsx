@@ -18,7 +18,6 @@ const SearchBox = ({ onSearch, placeholder }: Props) => (
       <li><a href="#">Contáctanos</a></li>
       <li>
         <input name="inputSearch" className="search-bar" type="text" placeholder={placeholder} onChange={onSearch} />
-
       </li>
     </ul>
   </nav>
