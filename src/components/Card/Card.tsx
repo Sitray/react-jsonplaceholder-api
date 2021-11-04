@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Dispatch } from 'redux';
+// import removeUserData from '../../helpers/removeUserData';
 import { modifyDataFromArray, removeCardFromArray } from '../../store/data/dataAction';
 import { Actions } from '../../store/models/actions';
 
@@ -25,6 +26,8 @@ const Card = ({
   // eslint-disable-next-line no-shadow
   const handleRemove = (id:number) => {
     dispatch(removeCardFromArray(id));
+
+    // removeUserData(id);
   };
 
   const enableEditing = () => {
