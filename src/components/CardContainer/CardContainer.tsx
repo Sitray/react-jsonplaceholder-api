@@ -37,7 +37,7 @@ const CardContainer: React.FC<LinkProps> = ({ userData, getAllRequestData, loadi
 
   // const { data, loading } = useFetchUserData();
 
-  const [searchInput, setSearchInput] = useState<any>('');
+  const [searchInput, setSearchInput] = useState<string>('');
   const [filteredData, setFilteredData] = useState<Data[]>([]);
 
   const handleOnSearch = ((e: React.FormEvent<HTMLInputElement>): void => {
