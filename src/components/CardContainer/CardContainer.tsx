@@ -40,9 +40,9 @@ const CardContainer: React.FC<LinkProps> = ({ userData, getAllRequestData, loadi
   const [searchInput, setSearchInput] = useState<any>('');
   const [filteredData, setFilteredData] = useState<Data[]>([]);
 
-  const handleOnSearch = (e:any) => {
-    setSearchInput(e.target.value);
-  };
+  const handleOnSearch = ((e: React.FormEvent<HTMLInputElement>): void => {
+    setSearchInput(e.currentTarget.value);
+  });
 
   useEffect(() => {
     setFilteredData(
@@ -53,7 +53,7 @@ const CardContainer: React.FC<LinkProps> = ({ userData, getAllRequestData, loadi
   return (
     <div className="container">
       <div className="search-box">
-        <SearchBox placeholder="search....." onSearch={(e:any) => handleOnSearch(e)} />
+        <SearchBox placeholder="search....." onSearch={handleOnSearch} />
       </div>
       {loading && <p>cargando</p>}
       {filteredData.map((res) => (

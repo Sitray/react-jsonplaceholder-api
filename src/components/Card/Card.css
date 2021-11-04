@@ -72,6 +72,7 @@ body {
   resize: none;
   border: none;
   font-family: sans-serif;
+  height: auto;
 }
 
 @media screen and (max-width: 1000px) {

@@ -4,12 +4,13 @@ import './SearchBox.css';
 
 interface Props {
     placeholder: string,
-    onSearch: any
+    // eslint-disable-next-line no-unused-vars
+    onSearch: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const SearchBox = ({ onSearch, placeholder }: Props) => (
   <div>
-    <input className="search-bar" type="text" placeholder={placeholder} onChange={onSearch} />
+    <input name="inputSearch" className="search-bar" type="text" placeholder={placeholder} onChange={onSearch} />
   </div>
 );
 

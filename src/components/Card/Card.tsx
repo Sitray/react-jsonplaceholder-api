@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { Dispatch } from 'redux';
 import { modifyDataFromArray, removeCardFromArray } from '../../store/data/dataAction';
@@ -20,6 +20,7 @@ const Card = ({
 
   const [edition, setEdition] = useState<boolean>(true);
   const [newText, setNewText] = useState<string>(body);
+  const textAreaRef = useRef<HTMLLinkElement>(null);
 
   // eslint-disable-next-line no-shadow
   const handleRemove = (id:number) => {
@@ -28,12 +29,13 @@ const Card = ({
 
   const enableEditing = () => {
     setEdition(!edition);
+    textAreaRef?.current?.focus();
   };
 
   // eslint-disable-next-line no-shadow
-  const handleSave = (id:number) => {
+  function handleSave(id: number) {
     dispatch(modifyDataFromArray(id, newText));
-  };
+  }
 
   return (
     <div className="card">
